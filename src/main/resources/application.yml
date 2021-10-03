@@ -1,0 +1,24 @@
+# 配置服务基本项（端口为8088，主路径为/blogapi，响应体强制UTF-8编码）
+server:
+  port: 8088
+  servlet:
+    context-path: /blogapi
+    encoding:
+      force: true
+      charset: UTF-8
+
+# 数据库连接配置（连接MySQL）
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/notes?characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&zeroDateTimeBehavior=convertToNull
+    username: notes
+    password: test
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+# mybatis配置（下划线自动转驼峰，mybatis加载路径）
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  mapper-locations:
+    - classpath:mybatis/*.xml
+
